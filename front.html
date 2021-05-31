@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nick</title>
+    <style>
+        .formBox {
+            padding: 0.5rem 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+
+        <div class="formBox">
+            <label for="link">Link</label>
+            <input required type="url" id="link" placeholder="Link">
+        </div>
+        <div class="formBox">
+            <label for="key">Key</label>
+            <input type="text" id="key" placeholder="Key">
+        </div>
+        <div class="formBox">
+            <button id="Submit">Submit</button>
+        </div>
+        <div id="msg">
+            <pre></pre>
+        </div>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./UI/index.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('Submit').addEventListener('click', addLink);
+        });
+    </script>
+</body>
+
+</html>
