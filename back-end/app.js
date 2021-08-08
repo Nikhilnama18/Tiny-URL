@@ -1,26 +1,31 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const storingRoute = require('./api/routers/store')
+const indexRoute = require('./api/routers/controller')
 const cors = require('cors')
 
+//  Handling Cors Errors    
 app.use(cors())
-// const morgan = require('morgan');
+
+// Body Parsing json requests
 app.use(express.json());
+// Body Parsing urlencoded requests
 app.use(express.urlencoded({ extended: false }));
 
 
-
+// Accetps every request from https://127.0.0.1:3000/ 
 app.use('/', (req, res, next) => {
     console.log(`Hit at ${req.url} :: ${req.method} ::`)
     next();
 })
-app.use('/', storingRoute);
 
-mongoose.connect('mongodb+srv://NikhilNama:'
-    + 'Nick1807' +
-    '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    {
+// Accetps every request from https://127.0.0.1:3000/ 
+app.use('/', indexRoute);
+
+// Creating a Connetion with MongoDB
+mongoose.connect('mongodb+srv://NikhilNama:' +
+    'Nick1807' +
+    '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, (err) => {
@@ -28,4 +33,5 @@ mongoose.connect('mongodb+srv://NikhilNama:'
             console.log("Mongo Error is :", err)
     });
 
+//Exporting entire file
 module.exports = app;
