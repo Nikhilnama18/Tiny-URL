@@ -23,6 +23,11 @@ app.use('/', (req, res, next) => {
 app.use('/', indexRoute);
 
 // Creating a Connetion with MongoDB
+//`mongodb + srv: //NikhilNama:Nick1807@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+
+// 'mongodb+srv://NikhilNama:' +
+// 'Nick1807' +
+// '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect('mongodb+srv://NikhilNama:' +
     'Nick1807' +
     '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {

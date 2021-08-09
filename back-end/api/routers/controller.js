@@ -12,9 +12,9 @@ router.post('/', async(req, res, next) => {
         key: req.body.key
     });
     const id = req.body.key;
-    // console.log({ id })
-
-
+    // console.log(typeof(id));
+    // const head = id.substring(0, 8);
+    // console.log("head is ", head);
     try {
         // Await lets your 
         let doc = await Keys.find({ key: id });
@@ -45,7 +45,6 @@ router.post('/', async(req, res, next) => {
         res.status(400).json(e);
     }
 });
-
 
 router.get('/:key', async(req, res, next) => {
     const dbkey = req.params.key;
