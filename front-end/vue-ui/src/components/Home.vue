@@ -8,13 +8,10 @@
       <p>Your Customized link is</p>
       <p>
         localhost:8080/
-
-        <input v-model="key" type="text" id="key" placeholder="alias" />
+        <input v-model="alias" type="text" id="key" placeholder="alias" />
       </p>
       <Button @click="click" title="Make Tiny URL" />
-    </div>
-    <div class="URLposition" v-if="created">
-      <p>created Link is</p>
+      <p v-if="created">created Link is</p>
     </div>
   </div>
 </template>
@@ -28,16 +25,32 @@ export default {
   data() {
     return {
       link: "",
-      key: "",
+      alias: "",
       created: false,
     };
   },
   methods: {
-    click() {
+    async click() {
       if (this.link === "") {
-        alert("Please entre the link");
+        alert("Please enter the link");
         return;
       }
+      if (this.alias === "") {
+        alert("Please enter the alias");
+        return;
+      }
+      const data = {
+        link: this.link,
+        key: this.alias,
+      };
+      const response = await fetch("http://localhost:3000/", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
       this.created = true;
       console.log("Click two");
     },

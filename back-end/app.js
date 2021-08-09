@@ -29,7 +29,7 @@ app.use('/', indexRoute);
 // 'Nick1807' +
 // '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect('mongodb+srv://NikhilNama:' +
-    'Nick1807' +
+    process.env.MONGODB +
     '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useUnifiedTopology: true,
         useNewUrlParser: true

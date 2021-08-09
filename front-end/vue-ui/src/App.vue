@@ -1,5 +1,5 @@
 <template>
-  <Header title="tiny URL" />
+  <Header title="TINYURL" />
   <router-view></router-view>
 </template>
 
