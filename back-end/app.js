@@ -23,19 +23,15 @@ app.use('/', (req, res, next) => {
 app.use('/', indexRoute);
 
 // Creating a Connetion with MongoDB
-//`mongodb + srv: //NikhilNama:Nick1807@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
-
-// 'mongodb+srv://NikhilNama:' +
-// 'Nick1807' +
-// '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect('mongodb+srv://NikhilNama:' +
-    process.env.MONGODB +
-    '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+    process.env.MONGODB + '@cluster0.mhvww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, (err) => {
-        if (err)
+        if (err) {
+            console.log(process.env.MONGODB)
             console.log("Mongo Error is :", err)
+        }
     });
 
 //Exporting entire file
