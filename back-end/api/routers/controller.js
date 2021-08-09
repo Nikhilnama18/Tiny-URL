@@ -31,7 +31,6 @@ router.post('/', async(req, res, next) => {
                 res.status(201).json({
                     message: "Key Created"
                 });
-                // res.write('Key Added to DB');
             }).catch(er => {
                 res.status(400).json({
                     error: er

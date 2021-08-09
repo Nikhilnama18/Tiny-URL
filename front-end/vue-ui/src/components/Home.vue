@@ -10,8 +10,9 @@
         localhost:8080/
         <input v-model="alias" type="text" id="key" placeholder="alias" />
       </p>
+      <p v-if="exitis">Alias Already Exitis ! Try another</p>
       <Button @click="click" title="Make Tiny URL" />
-      <p v-if="created">created Link is</p>
+      <a v-if="created" href="http://localhost:3000">Created Link is </a>
     </div>
   </div>
 </template>
@@ -27,6 +28,8 @@ export default {
       link: "",
       alias: "",
       created: false,
+      exitis: false,
+      redirect: "http://localhost:3000/",
     };
   },
   methods: {
@@ -51,7 +54,15 @@ export default {
         body: JSON.stringify(data),
       });
 
+      if (response.status === 200) {
+        this.exitis = true;
+        this.alias = "";
+        return;
+      }
+      this.exitis = false;
       this.created = true;
+      this.redirect += this.alias;
+      console.log(this.redirect);
       console.log("Click two");
     },
   },

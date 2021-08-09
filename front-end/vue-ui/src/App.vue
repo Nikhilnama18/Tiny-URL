@@ -1,6 +1,8 @@
 <template>
-  <Header title="TINYURL" />
-  <router-view></router-view>
+  <div>
+    <Header title="TINYURL" />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

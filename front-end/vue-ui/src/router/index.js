@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 import Home from '../components/Home.vue'
+import FetchURL from '../components/FetchURL.vue'
 
 const routes = [{
     path: '/',
