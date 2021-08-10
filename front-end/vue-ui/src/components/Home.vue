@@ -10,9 +10,19 @@
         localhost:8080/
         <input v-model="alias" type="text" id="key" placeholder="alias" />
       </p>
-      <p v-if="exitis">Alias Already Exitis ! Try another</p>
+      <p v-if="exists">Alias Already exists ! Try another</p>
       <Button @click="click" title="Make Tiny URL" />
-      <a v-if="created" href="http://localhost:3000">Created Link is </a>
+      <label for=""></label>
+      <div v-if="created" class="showLink">
+        <p>The TinyURL link is :</p>
+        <input
+          type="url"
+          :value="this.redirecturl"
+          id="redirectlink"
+          size="30"
+        />
+        <button @click="copylink">Copy Link</button>
+      </div>
     </div>
   </div>
 </template>
@@ -28,8 +38,8 @@ export default {
       link: "",
       alias: "",
       created: false,
-      exitis: false,
-      redirect: "http://localhost:3000/",
+      exists: false,
+      redirecturl: "",
     };
   },
   methods: {
@@ -38,6 +48,7 @@ export default {
         alert("Please enter the link");
         return;
       }
+      if (!this.link.startsWith("https")) this.link = "https://" + this.link;
       if (this.alias === "") {
         alert("Please enter the alias");
         return;
@@ -55,16 +66,24 @@ export default {
       });
 
       if (response.status === 200) {
-        this.exitis = true;
+        this.exists = true;
         this.alias = "";
         return;
       }
-      this.exitis = false;
+      this.exists = false;
       this.created = true;
-      this.redirect += this.alias;
-      console.log(this.redirect);
+      this.redirecturl = `http://localhost:8080/#/${this.alias}`;
       console.log("Click two");
     },
+    async getlink() {
+      const response = await fetch(`http://localhost:3000/${this.alias}`, {
+        method: "GET",
+      });
+      const data = await response.json();
+      (this.link = ""), (this.alias = "");
+      window.open(`${data.data}`, "_blank");
+    },
+    copylink() {},
   },
 };
 </script>
@@ -83,5 +102,13 @@ export default {
   border: 1px solid steelblue;
   padding: 20px;
   border-radius: 20px;
+}
+
+.showLink {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0ch;
 }
 </style>

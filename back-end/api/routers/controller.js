@@ -52,9 +52,11 @@ router.get('/:key', async(req, res, next) => {
         let ans = await Keys.find({ key: dbkey });
         if (ans.length > 0) {
             // location.href(ans[0].link);
-            res.status(201);
-            res.redirect(ans[0].link);
-            // (location.href = ans[0].link);
+            res.status(201).json({
+                    data: ans[0].link
+                })
+                // res.redirect(ans[0].link);
+                // (location.href = ans[0].link);
         } else {
             res.status(200).json({
                 message: 'Key Does not exist'
