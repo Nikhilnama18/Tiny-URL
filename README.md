@@ -1,5 +1,5 @@
 # Tiny-URL
-It is a URL shortening web service , which provides short aliases for redirecting long URLs.  
+It is a URL shortening web service , which provides short aliases for long URLs.  
 
 ## :bookmark_tabs: What's In This Document
 - [Introduction](#Introduction)
@@ -12,60 +12,74 @@ It is a URL shortening web service , which provides short aliases for redirectin
 ## Introduction
 Tiny URL addresses the problem where the URLs are too long to remember.
 
-So , instead of bookmarking or storing them some where , Tiny-URL can be used to short those URLs with an alias.
+So , instead of bookmarking or storing them some where , Tiny-URL can be used to short those URLs with an **alias you want**.
 
-Tiny-URL shortens the long URL so it will be easy to remember.
+Tiny-URL shortens the long URL and let's you access it with just the easy to remember **alias**.
 
 ## :rocket: Get Up and Running in 5 Minutes
-You can get the Tiny URL up and running in your local dev with in 5 minutes by doing the following steps.
+You can get the Tiny URL up and running in your local machine with in 5 minutes by doing the following steps.
 
-**1.Install Node.js and Vue.js **
+The following steps consider Node.js is available in the machine. If not you can get it from [here](https://nodejs.org/en/).
 
-Open the terminal & navigate to the root directory of the project.
+**Clone the repository**
+
+Open the terminal and paste the following command to clone.
+
 ```shell
-cd back-end/
+git clone https://github.com/Nikhilnama18/Tiny-URL.git
 ```
-Then run the back-end Server which will be lisiting on port number 3000 
+
+**Install dependencies and Vue.js**
+
+Navigate to the root directory of the project.
+
+```shell
+cd Tiny-URL/back-end/
+```
+Create your MongoDB Database and paste your MongoDB connection string in ``` backend/app.js``` at line number 27 
+
+Then install dependencies and run the back-end server which will be lisiting on port number 3000 
+
 ``` shell 
-npm run dev
+npm install
+npm run start
 ```
 Get back to the root directory and open front-end and run the front-end service 
 
 ``` shell
-cd ..
-cd front-end/
+cd ../front-end/vue-ui
+npm install vue
+npm intall
 npm run serve
 ```
 
-Create your MongoDB Database to store URLs  you can edit and paste your MongoDB connection in 
-``` backend/app.js``` in line number 26 
-
-And that's it . Now your Tiny URL is up and running on host address 
-```http://localhost:8080``` and waiting to shorten your URLs.
+That's it , click [here](http://localhost:8080) to open the application.
 
 
 ## How To Shorten The URL 
-A Clinet or User need to visit the Our Tiny-URL host address.
+Open the Tiny-URL application running at ```http://localhost:8080```
 
-Paste the Loong URL in the given field and name the URL with an Alias .
+Paste the Long URL in the given 1st field and name the URL with an Alias in the 2nd field and click **Make Tiny URL**.
 
 It is as simple as that . Now the long URL is shortened.
 
 ## How To Visit The Long URL With Alias 
 
-Type the alias after our web host address.
+Type the alias after our application hostname which is ```http://localhost:8080```.
 
-You will be redirected to the URL you named it with(Long URL).
+```
+http://localhost:8080/#/${your-alias}
+```
+
+You will be redirected to the URL the alias is pointing to.
 
 ## How It Works
-We store your URL and Alias in a DataBase with Alias as 'KEY'.
+We store your URL and Alias in a database.
 
-When ever you give your alias after our web host address .
-
-we retrive the URL you aliased it with and redirect you to that page.
+When ever you give your alias after our web host address, we retrive the data(URL) based on your alias and redirect you to the corresponding page.
 
 ## FAQs
 
-Q . What if two users give same alias ? 
+Q . What if i try add another url to use existing alias ?
 
-A . We store the alias of the First user and asks Second user to change the alias because it's already taken. 
+A . No, since the alias is already used, you need to give another alias.
