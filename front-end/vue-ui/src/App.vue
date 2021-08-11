@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="TINYURL" />
+    <!-- <Header title="TINYURL" /> -->
     <router-view></router-view>
   </div>
 </template>

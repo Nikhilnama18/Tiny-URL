@@ -1,5 +1,5 @@
 <template>
-  <div class="titlePos">
+  <div >
     <h1>{{ title }}</h1>
   </div>
 </template>
@@ -14,15 +14,15 @@ export default {
 
 <style  scoped>
 h1 {
-  position: relative;
+  position: fixed;
   left: 45%;
-  top: 1%;
+  top: 13%;
 }
-.titlePos {
-  right: 30%;
+/* .titlePos {
+  right: 20%;
   height: 30%;
   background: #88ad41;
   margin: 5px;
   padding: 10px 20px;
-}
+} */
 </style>
