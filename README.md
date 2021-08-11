@@ -37,8 +37,11 @@ cd front-end/
 npm run serve
 ```
 
+Create your MongoDB Database to store URLs  you can edit and paste your MongoDB connection in 
+``` backend/app.js``` in line number 26 
+
 And that's it . Now your Tiny URL is up and running on host address 
-```http://localhost:8080```
+```http://localhost:8080``` and waiting to shorten your URLs.
 
 
 ## How To Shorten The URL 
