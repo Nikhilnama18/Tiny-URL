@@ -27,9 +27,6 @@
       <Button @click="makeTURL" title="Make Tiny URL" />
       <div class="showLink" v-if="created">
         <p>The TinyURL link is :</p>
-        <!-- <label for="" class="copyFiedl" id="redirectlink">{{
-          redirecturl
-        }}</label> -->
         <input
           class="coypField"
           type="url"
@@ -38,20 +35,6 @@
           id="redirectlink"
           ref="urls"
         />
-        <!-- :disabled="validate" -->
-        <!-- Copy Link -->
-        <!-- <v-icon @click="copyDoiToClipboard(citingDoi)">
-          {{ redirecturl }}</v-icon
-        > -->
-        <!-- <a
-          href="http://localhost:3000/try101"
-          class="text-dark"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="mylink"
-        >
-          {{ redirecturl }}
-        </a> -->
         <button class="copybtn" @click="copylink">
           <i class="fa fa-copy" aria-hidden="true"></i>
         </button>
@@ -75,7 +58,6 @@ export default {
       created: false,
       exists: false,
       redirecturl: "",
-      validate: true,
     };
   },
   methods: {
@@ -123,12 +105,10 @@ export default {
 
     // To Copy the link from a field
     copylink() {
-      // this.validate = false;
       const copytext = document.getElementById("redirectlink");
       copytext.select();
       copytext.setSelectionRange(0, 99999);
       document.execCommand("copy");
-      // this.validate = true;
     },
   },
 };
@@ -167,8 +147,6 @@ export default {
   border-radius: 10px;
   box-sizing: border-box;
 }
-/* input[type="text"],
-select  */
 .aliasField {
   width: 30%;
   padding: 12px 10px;

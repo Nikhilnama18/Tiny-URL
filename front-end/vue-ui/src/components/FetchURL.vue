@@ -20,13 +20,13 @@ export default {
 
     const data = await response.json();
     // If the alias is not present Push it to our Home Page
-    this.$router.push("/");
+
     if (response.status === 200) {
+      this.$router.push("/");
       return;
     }
     // Open a their link in new Page
     window.location.href = `${data.data}`;
-    // window.open(`${data.data}`, "_blank");
   },
 };
 </script>

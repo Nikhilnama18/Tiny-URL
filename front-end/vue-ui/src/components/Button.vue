@@ -8,9 +8,6 @@
 <script>
 export default {
   name: "Button",
-  data() {
-    return {};
-  },
   props: {
     title: String,
   },
@@ -19,16 +16,6 @@ export default {
 </script>
 
 <style>
-.anybutton {
-  top: 30%;
-  left: 45%;
-  width: 100px;
-  height: 40px;
-  position: absolute;
-  z-index: 2;
-  background: black;
-}
-
 .btns {
   top: 33%;
   left: 27%;

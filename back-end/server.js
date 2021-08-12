@@ -6,5 +6,5 @@ const app = require('./app')
 const server = http.createServer(app);
 
 server.listen(port, host, () => {
-    console.log(`Server running at https://${host}:${port}`);
+    console.log(`Server running at http://${host}:${port}`);
 })
