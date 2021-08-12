@@ -1,6 +1,13 @@
 # Tiny-URL
 It is a URL shortening web service , which provides short aliases for long URLs.  
 
+
+<p align="center">
+  <a href="https://github.com/Nikhilnama18/Tiny-URL">
+    <img alt="Tiny-URL" src="./readme/Home.png" width="100%" />
+  </a>
+</p>
+
 ## :bookmark_tabs: What's In This Document
 - [Introduction](#Introduction)
 - [Get Up and Running in 5 Minutes](#rocket-get-up-and-running-in-5-minutes)
@@ -63,6 +70,17 @@ Paste the Long URL in the given 1st field and name the URL with an Alias in the 
 
 It is as simple as that . Now the long URL is shortened.
 
+<p align="center">
+  <a href="https://github.com/Nikhilnama18/Tiny-URL">
+    <img alt="Tiny-URL" src="./readme/URL.png" width="100%" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Nikhilnama18/Tiny-URL">
+    <img alt="Tiny-URL" src="./readme/Created.png" width="100%" />
+  </a>
+</p>
 ## How To Visit The Long URL With Alias 
 
 Type the alias after our application hostname which is ```http://localhost:8080```.
